@@ -1,0 +1,105 @@
+//mixins定位水平垂直居中
+.center-position {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.slider-wrap {
+  height: 475px;
+  width: 475px;
+  margin: 0 auto;
+  position: relative;
+  .mask {
+    position: absolute;
+    height: 118px;
+    width: 100%;
+    background: transparent;
+    bottom: -1px;
+  }
+  .slider-outer {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background: #fff;
+    position: relative;
+    .range-path {
+      position: absolute;
+      top: 0;
+      height: 50%;
+      width: 100%;
+      border-radius: 1000px 1000px 0 0;
+      transform-origin: 50% 100%;
+    }
+    .range1,
+    .range2 {
+      background-color: #0fa8eb;
+      z-index: 2;
+    }
+    .range3 {
+      background-color: #a7a7a7;
+      z-index: 2;
+    }
+    .range4 {
+      background-color: #a7a7a7;
+      z-index: 1;
+      opacity: 1;
+    }
+    .center-position();
+    .slider-inner {
+      z-index: 99;
+      height: 445px;
+      width: 445px;
+      border-radius: 50%;
+      background: #fff;
+      .center-position();
+      .center-dot {
+        .center-position();
+      }
+      .content-wrap {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: #fff;
+        .left,
+        .right {
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          font-size: 36px;
+          line-height: 50px;
+          text-align: center;
+        }
+        .center {
+          font-size: 80px;
+          position: relative;
+          &:after {
+            content: "°";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 0;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+  }
+  .handle {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #0fa8eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .color {
+      height: 22px;
+      width: 22px;
+      border-radius: 50%;
+    }
+  }
+}
