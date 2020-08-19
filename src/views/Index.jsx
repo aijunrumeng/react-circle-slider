@@ -2,20 +2,22 @@ import React, { Component } from "react";
 import CircleSlider from "./CircleSlider.jsx";
 
 class Index extends Component {
-  handleChange = (val) => {
-    console.log(val, "val1");
+  state = { value: 60 };
+  handleChange = (value) => {
+    this.setState({ value });
+    //dosomething
   };
-  handleAfterChange = (val) => {
-    console.log(val, "val2");
+  handleAfterChange = (value) => {
+    //dosomething
   };
   render() {
     return (
       <CircleSlider
-        value={60}
+        value={this.state.value}
         onChange={this.handleChange}
         onAfterChange={this.handleAfterChange}
       >
-        <div>123</div>
+        <div>{this.state.value}</div>
       </CircleSlider>
     );
   }
